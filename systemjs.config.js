@@ -9,8 +9,11 @@
     'app':                        'app', // 'dist',
 
     '@angular':                   'node_modules/@angular',
+    
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
-    'rxjs':                       'node_modules/rxjs'
+    'rxjs':                       'node_modules/rxjs',
+
+    '@ng-bootstrap':              'node_modules/@ng-bootstrap',
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -18,6 +21,8 @@
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
+
+    '@ng-bootstrap/ng-bootstrap': { main: 'index.js', defaultExtension: 'js' }
   };
 
   var ngPackageNames = [
@@ -33,6 +38,23 @@
     'upgrade',
   ];
 
+  var ngBootStrapPackageNames = [
+    'accordion',
+    'alert',
+    'buttons',
+    'carousel',
+    'collapse',
+    'dropdown',
+    'pagination',
+    'popover',
+    'progressbar',
+    'rating',
+    'tabset',
+    'timepicker',
+    'tooltip',
+    'typeahead'
+  ];
+
   // Individual files (~300 requests):
   function packIndex(pkgName) {
     packages['@angular/'+pkgName] = { main: 'index.js', defaultExtension: 'js' };
@@ -43,14 +65,22 @@
     packages['@angular/'+pkgName] = { main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
   }
 
+  function packBootStrapIndex(pkgName) {
+    packages['@ng-bootstrap/ng-bootstrap/'+pkgName] = { main: 'index.js', defaultExtension: 'js' };
+  }  
+
   // Most environments should use UMD; some (Karma) need the individual index files
   var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
 
   // Add package entries for angular packages
   ngPackageNames.forEach(setPackageConfig);
 
+  ngBootStrapPackageNames.forEach(packBootStrapIndex);
+
   // No umd for router yet
   packages['@angular/router'] = { main: 'index.js', defaultExtension: 'js' };
+
+  //packages['@ng-bootstrap/ng-bootstrap'] = { main: 'index.js', defaultExtension: 'js' };
 
   var config = {
     map: map,
