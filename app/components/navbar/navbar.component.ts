@@ -1,15 +1,7 @@
 
-import { Component, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-const noop = () => {
-};
 
-export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => NavbarComponent),
-    multi: true
-};
 
 
 
@@ -17,15 +9,21 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
 	moduleId: module.id,
     selector: 'my-navbar',
     templateUrl : 'navbar.component.html',
-    styleUrls   : ['navbar.component.css'],
-    providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
+    styleUrls   : ['navbar.component.css']
 })
-export class NavbarComponent implements ControlValueAccessor{
+export class NavbarComponent {
 
 	private HideExpandedNavBar: boolean = true;
 	private HideSearchInput: boolean = true;
 
 	private innerSearchInputText: string = '';
+
+    private NavbarSearch: any = {};
+
+    @Input() NavbarBrand : string;
+    @Input() NavbarItems : Array<any>;
+
+    @Output() NavbarSearchSubmit = new EventEmitter<any>();
 
 	constructor() {
 
@@ -35,54 +33,23 @@ export class NavbarComponent implements ControlValueAccessor{
 		this.HideExpandedNavBar = !this.HideExpandedNavBar;
 	}
 
-	closeMenu() {
-		this.HideExpandedNavBar = true;
+	closeOnMouseOut(idx:number) {
+        if (idx == this.NavbarItems.length-1) {
+            this.HideExpandedNavBar = true;    
+        }		
 	}
 
-	onSearchSubmit(formvalue:string) {
-		console.log(formvalue);
+	onSearchSubmit(formvalue:any) {
+		//console.log(formvalue);
+        this.NavbarSearchSubmit.emit(formvalue.SearchText);
+        formvalue.SearchText = "";
 	}
 
-
-    //Placeholders for the callbacks which are later providesd
-    //by the Control Value Accessor
-    private onTouchedCallback: () => void = noop;
-    private onChangeCallback: (_: any) => void = noop;
-
-    //get accessor
-    get value(): any {
-        return this.innerSearchInputText;
-    };
-
-    //set accessor including call the onchange callback
-    set value(v: any) {
-        if (v !== this.innerSearchInputText) {
-            this.innerSearchInputText = v;
-            this.onChangeCallback(v);
-        }
+    handleMenuClick(event:any) {
+        console.log(event);
+        event.srcElement.parentElement.classList.push('active');
     }
 
-    //Set touched on blur
-    onBlur() {
-        this.onTouchedCallback();
-    }
-
-    //From ControlValueAccessor interface
-    writeValue(value: any) {
-        if (value !== this.innerSearchInputText) {
-            this.innerSearchInputText = value;
-        }
-    }
-
-    //From ControlValueAccessor interface
-    registerOnChange(fn: any) {
-        this.onChangeCallback = fn;
-    }
-
-    //From ControlValueAccessor interface
-    registerOnTouched(fn: any) {
-        this.onTouchedCallback = fn;
-    }
 
 
 }

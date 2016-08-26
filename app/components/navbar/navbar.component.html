@@ -1,54 +1,53 @@
 
 <nav class="navbar navbar-dark bg-inverse" >
 
-
+	<!-- Bars icon, hidden on medium and larger screens -->
 	<span 
 		class="fa fa-bars fa-2x hidden-md-up pull-xs-left bg-inverse" 
 		style="color:white; border:none; margin-right: 10px"
 		(click)="toggleMenu()"
 	></span>
 
-	<a class="navbar-brand" href="#">DaveByDesign</a>
+	<!-- The navbar branding, {{NavbarBrand}} text @Input() from parent App component -->
+	<a class="navbar-brand" href="#">{{NavbarBrand}}</a>
+
+
+
+	<ul class="nav navbar-nav " [ngClass]="{ 'hidden-sm-down': HideExpandedNavBar }">
+
+		<!--  [ngClass]  = "{active:!idx}"    -->
+		<li 
+			template   = "ngFor let item of NavbarItems; let idx = index" 
+			class      = "nav-item" 
+			(mouseout) = "closeOnMouseOut(idx)"
+			
+		>
+			<a class="nav-link" routerLink="{{item.href}}" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" >{{item.label}}</a>	
+		</li>
+
+	</ul>
+
+
+
+	<span 
+		class   = "fa fa-search fa-2x  bg-inverse hidden-md-up" 
+		style   = "color:white; border:none; position: fixed; right:10px; top:7px"
+		(click) = "HideSearchInput = false"
+	></span>
 
 	<form 
 		class="form-inline" 
-		style="position: fixed; right: 10px; top: 7px; margin-left:0px"
+		style="position: fixed; right: 5px; top: 5px; margin-left:0px"
 		[ngClass]="{ 'hidden-sm-down': HideSearchInput }"
-		(ngSubmit)="onSearchSubmit(form.value)"
+		(ngSubmit)="onSearchSubmit(NavbarSearch)"
 	>
-			<input class="form-control" type="text" placeholder="Search" [(ngModel)] = "SearchInputText">
+			<input class="form-control" type="text" placeholder="Search" name="SearchText" [(ngModel)]="NavbarSearch.SearchText">
 			<button class="btn  btn-primary " type="submit" (click)="HideSearchInput = true">Search</button>
 	</form> 
 
 
-	<span 
-		class="fa fa-search fa-2x  pull-xs-right bg-inverse hidden-md-up" 
-		style="color:white; border:none"
-		(click)="HideSearchInput = false"
-	></span>
 
-		<ul class="nav navbar-nav " [ngClass]="{ 'hidden-sm-down': HideExpandedNavBar }">
-			<li class="nav-item active">
-	  			<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-	  			<a class="nav-link" href="#">Coding</a>
-			</li>
-			<li class="nav-item">
-	  			<a class="nav-link" href="#">Music</a>
-			</li>
-			<li class="nav-item">
-	  			<a class="nav-link" href="#">Art</a>
-			</li>
-			<li class="nav-item">
-	  			<a class="nav-link" href="#">Writing</a>
-			</li>
-			<li class="nav-item">
-	  			<a class="nav-link" href="#">Blog</a>
-			</li>
-			<li class="nav-item"  (mouseout)="closeMenu()">
-	  			<a class="nav-link" href="#">Pez</a>
-			</li>
-		</ul>
+
+
 
 </nav>
