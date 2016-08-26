@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component'
 
 @Component({
@@ -32,8 +33,10 @@ export class AppComponent {
 		{label : 'Pez', 	href : 'pez'	}
 	];
 
-	OnNavbarSearchSubmit(SearchText:string) {
-		console.log(SearchText);
+	constructor(public router: Router, public route: ActivatedRoute) {
+
 	}
 
+	OnNavbarSearchSubmit(passedSearchText:string) {
+		this.router.navigate(['/search/'+passedSearchText]);
 }

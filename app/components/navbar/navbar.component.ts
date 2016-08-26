@@ -46,8 +46,7 @@ export class NavbarComponent {
 	}
 
     handleMenuClick(event:any) {
-        console.log(event);
-        event.srcElement.parentElement.classList.push('active');
+        this.HideExpandedNavBar = true;
     }
 
 

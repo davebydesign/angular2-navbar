@@ -16,6 +16,7 @@ import { ArtPageComponent     }  from './components/routepages/art/art.component
 import { WritingPageComponent }  from './components/routepages/writing/writing.component';
 import { BlogPageComponent    }  from './components/routepages/blog/blog.component';
 import { PezPageComponent     }  from './components/routepages/pez/pez.component';
+import { SearchPageComponent  }  from './components/routepages/search/search.component';
 
 
   	
@@ -36,7 +37,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   	ArtPageComponent,
   	WritingPageComponent,
   	BlogPageComponent,
-  	PezPageComponent
+  	PezPageComponent,
+    SearchPageComponent
   ],
   providers: [
     appRoutingProviders

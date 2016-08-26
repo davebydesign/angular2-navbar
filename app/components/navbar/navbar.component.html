@@ -9,7 +9,7 @@
 	></span>
 
 	<!-- The navbar branding, {{NavbarBrand}} text @Input() from parent App component -->
-	<a class="navbar-brand" href="#">{{NavbarBrand}}</a>
+	<a class="navbar-brand" routerLink="">{{NavbarBrand}}</a>
 
 
 
@@ -22,7 +22,7 @@
 			(mouseout) = "closeOnMouseOut(idx)"
 			
 		>
-			<a class="nav-link" routerLink="{{item.href}}" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" >{{item.label}}</a>	
+			<a class="nav-link" routerLink="{{item.href}}" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" (click)="handleMenuClick()">{{item.label}}</a>	
 		</li>
 
 	</ul>
