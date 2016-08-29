@@ -17,20 +17,20 @@ This repository demonstrates a Bootstrap 4.0.0 (alpha.3) navigation bar componen
 
 ## Customizing
 All file modification points are indicated by a `/* -- MODIFY HERE -- */`comment within the given file.
-1. Editing [app.component.ts](https://github.com/davebydesign/angular2-navbar/app/app.component.ts)
+1. Editing [app.component.ts](https://github.com/davebydesign/angular2_quickstart_rc5/blob/master/app/app.component.ts)
    * Modify the `NavbarBrand` value on line 25. This is text giving branding to the navbar, e.g., `DaveByDesign`.
    * Modify the `NavbarItems` array at line 28 for as many navbar items as you intend, use the `label` field for the label text shown on the navbar menu, and the `href` field for the router path. Do not use any leading `/` for router paths. (The base route is indicated by `''`).
 2. Creating route components
    * Each navbar item links to its own route, and needs its own component file for router configuration.
    * Create as many new subdirectories as needed under `app/components/routepages`, one for each navbar item.
-   * In each new subdirectory, create a `*.component.ts` file. You can copy [art.component.ts](https://github.com/davebydesign/angular2-navbar/app/components/routepages/art/art.component.ts) as an example.
+   * In each new subdirectory, create a `*.component.ts` file. You can copy [art.component.ts](https://github.com/davebydesign/angular2_quickstart_rc5/blob/master/app/components/routepages/art/art.component.ts) as an example.
    * for each new `*.component.ts` file:
       * Modify the `template` content as needed.
       * Modify the class name that follows `export class` at the end of the file.
-3. Editing [app.module.ts](https://github.com/davebydesign/angular2-navbar/app/app.module.ts)
+3. Editing [app.module.ts](https://github.com/davebydesign/angular2_quickstart_rc5/blob/master/app/app.module.ts)
       * For each route component created, add import statements with the component name and path.
       * In the `declarations` section of `@NgModule`, alse add each of the component names.
-4. Editing [app.routing.ts](https://github.com/davebydesign/angular2-navbar/app/app.routing.ts)
+4. Editing [app.routing.ts](https://github.com/davebydesign/angular2_quickstart_rc5/blob/master/app/app.routing.ts)
       * As in step 3, for each route component created, add import statements with the component name and path.
       * Modify the `AppRoutes` array with the appropriate path and component name for each route.
 
