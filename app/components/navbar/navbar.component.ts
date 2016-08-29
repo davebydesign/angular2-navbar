@@ -4,12 +4,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 
 
-
 @Component({
-	moduleId: module.id,
-    selector: 'my-navbar',
-    templateUrl : 'navbar.component.html',
-    styleUrls   : ['navbar.component.css']
+   moduleId: module.id,
+   selector: 'my-navbar',
+   templateUrl : 'navbar.component.html',
+   styleUrls   : ['navbar.component.css']
 })
 export class NavbarComponent {
 
@@ -35,8 +34,8 @@ export class NavbarComponent {
 
 	closeOnMouseOut(idx:number) {
         if (idx == this.NavbarItems.length-1) {
-            this.HideExpandedNavBar = true;    
-        }		
+            this.HideExpandedNavBar = true;
+        }
 	}
 
 	onSearchSubmit(formvalue:any) {

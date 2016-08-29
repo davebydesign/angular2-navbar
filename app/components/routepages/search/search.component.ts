@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
-    selector: 'search-route',
     styles: [],
     directives: [],
     template: `
@@ -12,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 
 
-export class SearchPageComponent { 
+export class SearchPageComponent {
 
 	private SearchText : string;
 

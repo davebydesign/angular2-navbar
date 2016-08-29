@@ -2,15 +2,14 @@ import { Component } from '@angular/core';
 
 
 @Component({
-    selector: 'art-route',
     styles: [],
     directives: [],
-    template: `
+    template: /* -- MODIFY HERE -- */ `
     	Art Route
     `
 })
 
-export class ArtPageComponent { 
+export class /* -- MODIFY HERE -- */ ArtPageComponent {
 
 
 

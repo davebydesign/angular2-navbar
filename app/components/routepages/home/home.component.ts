@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 
 @Component({
-    selector: 'home-route',
     styles: [],
     directives: [],
     template: `
@@ -10,7 +9,7 @@ import { Component } from '@angular/core';
     `
 })
 
-export class HomePageComponent { 
+export class HomePageComponent {
 
 
 
