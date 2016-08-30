@@ -15,7 +15,7 @@ This repository demonstrates a Bootstrap 4.0.0 (alpha.3) navigation bar componen
 * Demonstrates router parameter passing between components, as the searched text is passed from the app component to the search results component, in response to the `EventEmmitter`.
 * Uses responsive Bootstrap 4 classes to collapse the navbar menu and search input on smaller screens, allowing for toggle buttons to access these features (menu & search.)
 
-## Customizing
+## Customizing ???
 All file modification points are indicated by a `/* -- MODIFY HERE -- */`comment within the given file.
 
 1. Editing [app.component.ts](https://github.com/davebydesign/angular2_quickstart_rc5/blob/master/app/app.component.ts)
