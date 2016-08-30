@@ -6,7 +6,7 @@ This repository demonstrates a Bootstrap 4.0.0 (alpha.3) navigation bar componen
 
 
 
-## Features
+## Features!!!
 * Uses the new `NgModule` pattern of Angular2 rc5.
 * Uses the `RouterModule` new to Angular2 rc5.
 * Implements a self contained navbar component, with configuration data passed in from the app component via `@Input` parameters.
