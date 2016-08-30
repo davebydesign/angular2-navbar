@@ -26,7 +26,7 @@ All file modification points are indicated by a `/* -- MODIFY HERE -- */`comment
    * Each navbar item links to its own route, and needs its own component file for router configuration.
    * Create as many new subdirectories as needed under `app/components/routepages`, one for each navbar item.
    * In each new subdirectory, create a `*.component.ts` file. You can copy [art.component.ts](https://github.com/davebydesign/angular2_quickstart_rc5/blob/master/app/components/routepages/art/art.component.ts) as an example.
-   * for each new `*.component.ts` file:
+   * For each new `*.component.ts` file:
       * Modify the `template` content as needed.
       * Modify the class name that follows `export class` at the end of the file.
 
